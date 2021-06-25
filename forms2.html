@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+
+<link href="css/slide.css" type="text/css" rel="stylesheet"/>
+
+<header style= "background-color:#e5e5e5;padding:15px;text-align:center; grid-area: menu;">
+  <h1>Car Blog</h1>
+</header>
+
+  <nav class="menu">
+    <a href="carblog.html">Home</a>
+    <a href="history.html">About</a>
+    <a href="news.html">Latest</a>
+    <a href="forms2.html">Contact</a>
+  </nav>
+
+</head>
+
+
+<body>
+</br>
+</br>
+</br>
+             <section style="background-color:#e5e5e5;padding:15px;text-align:center; grid-area: menu;"> At lease one piece of data has to come in from every input type. </section>
+             <section style="background-color: #FFFFE0; grid-area: main;">
+
+</br>
+<form action = "form.html" method = "get"><br/>
+Name:<input type = "text" name = "fullname" value="Enter Full Name"/><br/>
+Email:<input type = "email" name = "emaiol" value="example@aol.com"/><br/>
+Phone:(optional)<input type = "phone" name = "phon" value="(---)--- - ----"/><br/>
+Gender:<br/>
+Male<input type = "radio" name = "gender" value="male"/>Female<input type = "radio" name = "gender" value="female"/><br/>
+Priorities<br/>
+Mpg <input type = "checkbox" name = "hobbies[]" value = "mpg" />  
+Safety <input type = "checkbox" name = "hobbies[]" value = "safety" />  
+Space <input type = "checkbox" name = "hobbies[]" value = "space" /><br/>
+Speed <input type = "checkbox" name = "hobbies[]" value = "speed" /><br/>
+Price <input type = "checkbox" name = "hobbies[]" value = "price" /><br/>
+Favorite Car Type <select name = "show">
+<option value = "">Choose Below</option>
+<option value = "gasless">Fuel Saving/Hybrid/EV</option>
+<option value = "go">Sporty/RWD/Fast</option>
+<option value = "guzzle">SUV/Off-Road/Big</option>
+</select><br/>
+Comments<br/>
+<textarea cols = "50" rows = "6" name = "comments" id="one">Enter Comments</textarea><br/>
+<input type = "submit" name = "submit" value = "enter me" onclick = "validate()"/>
+</form>
+</section>
+<footer style="grid-area:footer;"> copyright 2021</footer>
+<script>
+console.log(document.forms);
+/*console.log(document.getElementsByTagName("input")[0].checked);
+console.log(document.getElementsByTagName("input")[1].value);
+console.log(document.getElementsByTagName("input")[2].value);
+console.log(document.getElementsByTagName("input")[3].checked);
+console.log(document.getElementsByTagName("input")[4].value);
+console.log(document.getElementsByTagName("input")[5].value);
+console.log(document.getElementsByTagName("input"));
+
+console.log(document.getElementsByName("fullname").value);
+console.log(document.getElementsByName("gender"));
+console.log(document.getElementsByName("hobbies[]").length);
+
+console.log(document.getElementsByName("comments").innerHTML);
+
+console.log(document.getElementsByName("show"));
+console.log(document.getElementsByTagName("option"));
+*/
+console.log(document.getElementsByTagName("textarea"));
+console.log(document.getElementsByName("comments"));
+
+function validateName(name)
+{		if(name.value =="" || name.value =="Enter Full Name" ){
+		
+		return false
+		
+	}
+	return true
+}
+
+function validateRadio (radios,radioButton)
+{
+    for (i = 1; i < radios.length+1; ++ i)
+    {
+        if (radioButton [i].checked) return true;
+    }
+    return false;
+}
+function validateCheckBox (checkbox,checkboxes)
+{
+    for (i = 3; i < checkbox.length+3; ++ i)
+    {
+        if (checkboxes [i].checked) return true;
+    }
+    return false;
+}
+function validateDropDown (show)
+	{
+	
+    if (show[0].selected == true)
+   {
+    
+    return false
+   }
+   return true
+}
+function validateTextField(tb)
+	{
+
+if (tb.value=="" || tb.value=="Enter Comments"){
+			return false;
+	}
+	return true
+	}
+
+function validate() {
+	
+	var name = document.getElementsByTagName("input")[0];
+	var radios = document.getElementsByName("gender");
+	var radioButton = document.getElementsByTagName("input");
+	var checkbox = document.getElementsByName("hobbies[]");
+	var checkboxes = document.getElementsByTagName("input");
+	var show = document.getElementsByTagName("option");
+	var tb = document.getElementById("one");
+	
+	//name
+	if (validateName(name)==false){
+		alert('Name field is not filled out');
+		
+
+	}
+	//radio button
+	 if(validateRadio (radios,radioButton)==false)
+    {
+        alert('M/F field is not filled out');
+       
+    }
+
+	//checkbox
+	
+ if(validateCheckBox (checkbox,checkboxes)==false)
+    {
+        alert('checkbox field is not filled out');
+        
+    }
+	
+	//dropdown
+	if(validateDropDown(show)==false)
+	{
+		alert("Please select a type of show");
+		
+	}
+
+	
+	//textfield
+	if (validateTextField(tb)==false)
+	{
+		alert("please enter text");
+		
+	}
+
+	
+
+	
+	  else
+    {
+ 
+        alert('Everything is answered');
+        return false;
+       
+    }
+
+
+	
+
+}
+</script>
+
+
+
+
+
+
+</form>
+</body>
+</html>
